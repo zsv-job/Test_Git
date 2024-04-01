@@ -2,7 +2,6 @@
 Дополнить справочник возможностью копирования данных из одного файла в другой.
 Пользователь вводит номер строки, которую необходимо перенести из одного файла в другой.
 """
-
 from csv import DictReader, DictWriter
 from os.path import exists
 
@@ -18,7 +17,6 @@ def read_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as data:
         f_r = DictReader(data)
         return list(f_r)
-
 
 def write_file(file_name, lst):
     res = read_file(file_name)
@@ -52,8 +50,6 @@ def copy_rows(file_name, new_file_name):
             return copied_row
     print(elem)
 
-
-
 def row_search(file_name):
     last_name = input("Введите фамилию для поиска:")
     res = read_file(file_name)
@@ -64,8 +60,6 @@ def row_search(file_name):
             break
     else:
         print("Фамилия",last_name ,"не найдена")
-
-
 
 def main():
     while True:
@@ -89,8 +83,6 @@ def main():
                 print('Файл отсутствует, создайте его')
                 continue
             row_search(file_name)
-
-
 
 # main()
 copy_rows(file_name,new_file_name)
